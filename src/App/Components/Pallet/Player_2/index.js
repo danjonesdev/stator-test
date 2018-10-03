@@ -10,13 +10,6 @@ class Pallet extends Component {
     store.connectComponentState(this, ["PLAYER_2"]);
   }
 
-  renderSpell = (spellId, i) => {
-    const spells = store.get("SPELLS");
-    const spell = find(spells, { id: spellId });
-
-    return <Spell key={i} spell={spell} />;
-  };
-
   render() {
     const { PLAYER_2 } = this.state;
     const { pallet } = PLAYER_2;
@@ -24,7 +17,7 @@ class Pallet extends Component {
     if (pallet.length) {
       return (
         <div className="pallet--p2">
-          {pallet.map((spellId, i) => this.renderSpell(spellId, i))}
+          {pallet.map((spell, i) => <Spell key={i} spell={spell} />)}
         </div>
       );
     }

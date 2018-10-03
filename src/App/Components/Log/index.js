@@ -13,9 +13,7 @@ class Log extends Component {
     const { log } = GAME;
 
     return (
-      <div className="log">
-        {reverse(log).map((text, i) => <p key={i}>{text}</p>)}
-      </div>
+      <div className="log">{log.map((text, i) => <p key={i}>{text}</p>)}</div>
     );
   }
 }

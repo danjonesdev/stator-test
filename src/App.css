@@ -69,7 +69,6 @@ div {
   vertical-align: top;
 }
 
-
 .Game {
   position: fixed;
   width: 1000px;
@@ -134,7 +133,7 @@ div {
 }
 
 .pallet__spell {
-  transition: opacity ease-in-out 0.3s;
+  transition: all ease-in-out 0.3s;
   display: inline-block;
   height: 120px;
   width: 80px;
@@ -147,23 +146,65 @@ div {
   margin-left: 5px;
   margin-right: 5px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  bottom: 0px;
 }
 
 .pallet__spell img {
-    position: absolute;
-    top: 35px;
-    width: 50px;
-    height: 50px;
-    margin: 0 auto;
-    border-radius: 50%;
-    left: 0;
-    right: 0;
+  position: absolute;
+  top: 35px;
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+  border-radius: 50%;
+  left: 0;
+  right: 0;
+}
 
+.pallet__spell.active--p1 {
+  -webkit-animation: active--p1 0.3s forwards ease-in-out;
+}
+
+.pallet__spell.active--p2 {
+  -webkit-animation: active--p2 0.3s forwards ease-in-out;
+}
+
+.pallet__spell.active--p1 img, .pallet__spell.active--p2 img {
+  -webkit-animation: rotation 1.5s infinite linear;
 }
 
 .spell.disabled {
   opacity: 0.3;
   cursor: default;
+}
+
+@-webkit-keyframes active--p1 {
+  from {
+    bottom: 0px;
+  }
+
+  to {
+    bottom: 50px;
+  }
+}
+
+@-webkit-keyframes active--p2 {
+  from {
+    bottom: 0px;
+  }
+
+  to {
+    bottom: -50px;
+  }
+}
+
+@-webkit-keyframes rotation {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(359deg);
+  }
 }
 
 .start-round {

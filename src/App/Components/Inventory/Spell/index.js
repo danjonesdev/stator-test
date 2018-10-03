@@ -20,7 +20,7 @@ class Spell extends Component {
       player.level >= spell.level_required
     ) {
       // add spell to pallet
-      player.pallet.push(spell.id);
+      player.pallet.push(spell);
       // increment pallet_items
       player.pallet_items++;
 
@@ -35,7 +35,7 @@ class Spell extends Component {
 
     if (
       GAME.isBattle ||
-      includes(PLAYER_1.pallet, spell.id) ||
+      includes(PLAYER_1.pallet, spell) ||
       spell.level_required > PLAYER_1.level
     ) {
       return (

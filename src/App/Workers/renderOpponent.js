@@ -27,11 +27,8 @@ const renderOpponent = () => {
   palletSpells = filter(palletSpells, spell => {
     return spell.level_required <= player_2.level;
   });
-
-  for (let i = 0; i < palletSpells.length; i++) {
-    // adds id to player_2 pallet
-    player_2.pallet.push(palletSpells[i].id);
-  }
+  // adds to player_2 pallet
+  player_2.pallet = palletSpells;
 
   store.set({ PLAYER_2: player_2 });
 };

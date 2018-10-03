@@ -11,7 +11,7 @@ const initStore = () => {
       isBattle: false,
       log: [],
       turn: null,
-      turnNumber: 1
+      isRoundEnd: false
     },
 
     PLAYER_1: {

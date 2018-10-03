@@ -1,16 +1,17 @@
 import React, { Component } from "react";
 import { store } from "statorgfc";
 
-import initStore from './Store';
+import initStore from "./Store";
 
-import DevHelper from './Components/DevHelper';
+import DevHelper from "./Components/DevHelper";
 import Inventory from "./Components/Inventory";
 import Pallet_P1 from "./Components/Pallet/Player_1";
 import Pallet_P2 from "./Components/Pallet/Player_2";
-import StartRound from './Components/StartRound';
-import Log from './Components/Log';
+import StartRound from "./Components/StartRound";
+import EndRound from "./Components/EndRound";
+import Log from "./Components/Log";
 
-import Background from './Assets/background.jpg';
+import Background from "./Assets/background.jpg";
 import "../App.css";
 
 initStore();
@@ -22,11 +23,15 @@ class App extends Component {
   }
 
   render() {
-    const isDev = (this.state.ENV.isDev) ? <DevHelper /> : false;
+    const isDev = this.state.ENV.isDev ? <DevHelper /> : false;
 
     return (
-      <div className="Game" style={{background: `url(${Background})`, backgroundSize: 'cover'}}>
+      <div
+        className="Game"
+        style={{ background: `url(${Background})`, backgroundSize: "cover" }}
+      >
         <StartRound />
+        <EndRound />
         <Inventory />
         <Pallet_P1 />
         <Pallet_P2 />
