@@ -45,6 +45,8 @@ const initStore = () => {
         id: "waterBolt",
         name: "Water Bolt",
         type: "attack",
+        attack: 25,
+        defence: 0,
         mana_cost: 25,
         level_required: 1
       },
@@ -52,22 +54,42 @@ const initStore = () => {
         id: "fireBolt",
         name: "Fire Bolt",
         type: "attack",
+        attack: 35,
+        defence: 0,
+        mana_cost: 35,
+        level_required: 1
+      },
+      // {
+      //   id: "iceBolt",
+      //   name: "Ice Bolt",
+      //   type: "attack",
+      //   mana_cost: 25,
+      //   level_required: 2
+      // },
+      // {
+      //   id: "lavaBolt",
+      //   name: "Lava Bolt",
+      //   type: "attack",
+      //   mana_cost: 25,
+      //   level_required: 2
+      // },
+      {
+        id: "waterShield",
+        name: "Water Shield",
+        type: "defence",
+        attack: 0,
+        defence: 25,
         mana_cost: 25,
         level_required: 1
       },
       {
-        id: "iceBolt",
-        name: "Ice Bolt",
-        type: "attack",
-        mana_cost: 25,
-        level_required: 2
-      },
-      {
-        id: "lavaBolt",
-        name: "Lava Bolt",
-        type: "attack",
-        mana_cost: 25,
-        level_required: 2
+        id: "fireShield",
+        name: "Fire Shield",
+        type: "defence",
+        attack: 0,
+        defence: 35,
+        mana_cost: 35,
+        level_required: 1
       }
     ]
   });
