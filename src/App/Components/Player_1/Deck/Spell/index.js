@@ -19,7 +19,7 @@ class Spell extends Component {
 
     if (
       // if not already dealt card
-      player_1.active_spells.length === 0 &&
+      player_1.active_spell.length === 0 &&
       // if enough mana
       player_1.current_mana >= spell.mana_cost
     ) {
@@ -32,13 +32,13 @@ class Spell extends Component {
     const { GAME, PLAYER_1 } = this.state;
     const spellIcon = require(`../../../../Assets/Spells/${spell.id}.svg`);
 
-    const activeIds = map(PLAYER_1.active_spells, "id");
+    const activeIds = map(PLAYER_1.active_spell, "id");
     const currentActiveSpells = indexOf(activeIds, spell.id);
 
-    if (!GAME.isBattle || spell.mana_cost > PLAYER_1.current_mana) {
+    if (currentActiveSpells >= 0) {
       return (
         <div
-          className="pallet__spell  spell  disabled"
+          className="deck__spell  spell  active--p1"
           style={{ background: `url(${Card})`, backgroundSize: "cover" }}
         >
           <img src={spellIcon} alt={spell.name} />
@@ -46,10 +46,10 @@ class Spell extends Component {
       );
     }
 
-    if (currentActiveSpells >= 0) {
+    if (!GAME.isBattle || spell.mana_cost > PLAYER_1.current_mana) {
       return (
         <div
-          className="pallet__spell  spell  active--p1"
+          className="deck__spell  spell  disabled"
           style={{ background: `url(${Card})`, backgroundSize: "cover" }}
         >
           <img src={spellIcon} alt={spell.name} />
@@ -59,7 +59,7 @@ class Spell extends Component {
 
     return (
       <div
-        className="pallet__spell  spell"
+        className="deck__spell  spell"
         style={{ background: `url(${Card})`, backgroundSize: "cover" }}
         onClick={() => {
           this.handleClick(spell);

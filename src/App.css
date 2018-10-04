@@ -130,29 +130,27 @@ div {
   text-align: center;
 }
 
-.pallet--p1 {
+.deck--p1 {
   position: absolute;
   bottom: 30px;
   left: 0;
   right: 0;
   margin: 0 auto;
-  left: 100px;
   width: 500px;
   height: 120px;
 }
 
-.pallet--p2 {
+.deck--p2 {
   position: absolute;
   top: 30px;
   left: 0;
   right: 0;
   margin: 0 auto;
-  left: 100px;
   width: 500px;
   height: 120px;
 }
 
-.pallet__spell {
+.deck__spell {
   transition: all ease-in-out 0.3s;
   display: inline-block;
   height: 120px;
@@ -169,7 +167,7 @@ div {
   bottom: 0px;
 }
 
-.pallet__spell img {
+.deck__spell img {
   position: absolute;
   top: 35px;
   width: 50px;
@@ -180,15 +178,15 @@ div {
   right: 0;
 }
 
-.pallet__spell.active--p1 {
+.deck__spell.active--p1 {
   -webkit-animation: active--p1 0.3s forwards ease-in-out;
 }
 
-.pallet__spell.active--p2 {
+.deck__spell.active--p2 {
   -webkit-animation: active--p2 0.3s forwards ease-in-out;
 }
 
-.pallet__spell.active--p1 img, .pallet__spell.active--p2 img {
+.deck__spell.active--p1 img, .deck__spell.active--p2 img {
   -webkit-animation: rotation 1.5s infinite linear;
 }
 
@@ -227,6 +225,22 @@ div {
   }
 }
 
+.wrath--p1 {
+  position: absolute;
+  bottom: 30px;
+  right: 0;
+  width: 300px;
+  height: 120px;
+}
+
+.wrath--p2 {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  width: 300px;
+  height: 120px;
+}
+
 .start-round {
   position: absolute;
   margin: 0 auto;
@@ -246,13 +260,13 @@ div {
   font-size: 14px;
   right: 5px;
   bottom: 5px;
-  width: 120px;
-  height: 150px;
+  width: 180px;
+  height: 480px;
   background: white;
-  overflow-y: hidden;
+  overflow-y: scroll;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
 .log p {
-  margin-bottom: 4px;
+  margin-bottom: 12px;
 }

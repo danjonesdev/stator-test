@@ -5,8 +5,6 @@ import initStore from "./Store";
 
 import DevHelper from "./Components/DevHelper";
 import Inventory from "./Components/Inventory";
-import Pallet_P1 from "./Components/Pallet/Player_1";
-import Pallet_P2 from "./Components/Pallet/Player_2";
 import Player_1 from "./Components/Player_1";
 import Player_2 from "./Components/Player_2";
 import StartRound from "./Components/StartRound";
@@ -36,9 +34,7 @@ class App extends Component {
         <EndRound />
         <Inventory />
         <Player_2 />
-        <Pallet_P2 />
         <Player_1 />
-        <Pallet_P1 />
         <Log />
         {isDev}
       </div>

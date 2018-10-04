@@ -10,25 +10,41 @@ const endRound = () => {
   const player_2 = store.get("PLAYER_2");
   const game = store.get("GAME");
 
-  // fightttttttt
+  // p1
 
-  const player_1_attack = map(player_1.active_spells, "attack");
-  const player_2_defence = map(player_2.active_spells, "defence");
+  let player_1_damage = player_1.active_wrath[0].effect(player_1, player_2);
 
-  if (player_1_attack > player_2_defence) {
-    player_2.current_health -= player_1_attack;
+  if (player_1_damage > 0) {
+    player_2.current_health -= player_1_damage;
+
+    game.log.push(
+      `${player_1.name} does ${player_1_damage} to ${player_2.name}`
+    );
+  } else {
+    game.log.push(
+      `${player_1.name}'s ${player_1.active_spell[0].name} is ineffective`
+    );
   }
 
-  const player_2_attack = map(player_2.active_spells, "attack");
-  const player_1_defence = map(player_1.active_spells, "defence");
+  // p2
 
-  if (player_2_attack > player_1_defence) {
-    player_1.current_health -= player_2_attack;
+  let player_2_damage = player_2.active_wrath[0].effect(player_2, player_1);
+
+  if (player_2_damage > 0) {
+    player_1.current_health -= player_2_damage;
+
+    game.log.push(
+      `${player_2.name} does ${player_2_damage} to ${player_1.name}`
+    );
+  } else {
+    game.log.push(
+      `${player_2.name}'s ${player_2.active_spell[0].name} is ineffective`
+    );
   }
 
-  // reset active_spells
-  player_1.active_spells = [];
-  player_2.active_spells = [];
+  // reset active_spell
+  player_1.active_spell = [];
+  player_2.active_spell = [];
 
   game.log.push("End Round");
 

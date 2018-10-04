@@ -24,7 +24,11 @@ class StartRound extends Component {
   render() {
     const { GAME, PLAYER_1 } = this.state;
 
-    if (!GAME.isBattle && PLAYER_1.pallet_items === PLAYER_1.pallet_limit) {
+    if (
+      !GAME.isBattle &&
+      PLAYER_1.deck.length === PLAYER_1.deck_limit &&
+      PLAYER_1.active_wrath.length === 1
+    ) {
       return (
         <p className="start-round" onClick={this.handleRound}>
           Start Round

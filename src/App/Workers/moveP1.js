@@ -15,12 +15,12 @@ const moveP1 = spell => {
 
   // take off mana const
   player_1.current_mana -= spell.mana_cost;
-  // add spell to active_spells
-  player_1.active_spells.push(spell);
+  // add spell to active_spell
+  player_1.active_spell.push(spell);
 
   game.log.push(`${player_1.name} uses ${spell.name}`);
 
-  if (!player_2.active_spells.length) {
+  if (!player_2.active_spell.length) {
     game.turn = "PLAYER_2";
     moveP2();
   }

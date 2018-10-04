@@ -19,11 +19,11 @@ const moveP2 = () => {
   // set player_2 active
   let spell;
   // get random spell
-  spell = sample(player_2.pallet);
+  spell = sample(player_2.deck);
   // take off mana const
   player_2.current_mana -= spell.mana_cost;
-  // adds to player_2 active_spells
-  player_2.active_spells.push(spell);
+  // adds to player_2 active_spell
+  player_2.active_spell.push(spell);
 
   game.log.push(`${player_2.name} uses ${spell.name}`);
 

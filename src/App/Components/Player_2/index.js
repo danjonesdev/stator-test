@@ -2,18 +2,25 @@ import React, { Component } from "react";
 import { store } from "statorgfc";
 import reverse from "lodash/reverse";
 
+import Deck from "./Deck";
+import Wrath from "./Wrath";
+
 class Player_1 extends Component {
   constructor() {
     super();
-    store.connectComponentState(this, ["PLAYER_1"]);
+    store.connectComponentState(this, ["PLAYER_2"]);
   }
 
   render() {
-    const { PLAYER_1 } = this.state;
-    const { current_health } = PLAYER_1;
+    const { PLAYER_2 } = this.state;
+    const { current_health } = PLAYER_2;
 
     return (
-      <div className="health--p2">Health = {current_health}</div>
+      <React.Fragment>
+        <div className="health--p2">Health = {current_health}</div>
+        <Deck />
+        <Wrath />
+      </React.Fragment>
     );
   }
 }

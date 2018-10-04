@@ -18,8 +18,8 @@ class StartRound extends Component {
 
     if (
       GAME.isBattle &&
-      PLAYER_1.active_spells.length &&
-      PLAYER_2.active_spells.length
+      PLAYER_1.active_spell.length &&
+      PLAYER_2.active_spell.length
     ) {
       return (
         <p className="start-round" onClick={this.handleClick}>

@@ -17,13 +17,13 @@ class Spell extends Component {
     const { GAME, PLAYER_2 } = this.state;
     const spellIcon = require(`../../../../Assets/Spells/${spell.id}.svg`);
 
-    const activeIds = map(PLAYER_2.active_spells, "id");
+    const activeIds = map(PLAYER_2.active_spell, "id");
     const currentActiveSpells = indexOf(activeIds, spell.id);
 
-    if (!GAME.isBattle || spell.mana_cost > PLAYER_2.current_mana) {
+    if (currentActiveSpells >= 0) {
       return (
         <div
-          className="pallet__spell  spell  disabled"
+          className="deck__spell  spell  active--p2"
           style={{ background: `url(${Card})`, backgroundSize: "cover" }}
         >
           <img src={spellIcon} alt={spell.name} />
@@ -31,10 +31,10 @@ class Spell extends Component {
       );
     }
 
-    if (currentActiveSpells >= 0) {
+    if (!GAME.isBattle || spell.mana_cost > PLAYER_2.current_mana) {
       return (
         <div
-          className="pallet__spell  spell  active--p2"
+          className="deck__spell  spell  disabled"
           style={{ background: `url(${Card})`, backgroundSize: "cover" }}
         >
           <img src={spellIcon} alt={spell.name} />
@@ -44,7 +44,7 @@ class Spell extends Component {
 
     return (
       <div
-        className="pallet__spell  spell"
+        className="deck__spell  spell"
         style={{ background: `url(${Card})`, backgroundSize: "cover" }}
       >
         <img src={spellIcon} alt={spell.name} />

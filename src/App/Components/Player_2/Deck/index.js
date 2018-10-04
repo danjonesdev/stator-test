@@ -4,7 +4,7 @@ import find from "lodash/find";
 
 import Spell from "./Spell";
 
-class Pallet extends Component {
+class Deck extends Component {
   constructor() {
     super();
     store.connectComponentState(this, ["PLAYER_2"]);
@@ -12,12 +12,12 @@ class Pallet extends Component {
 
   render() {
     const { PLAYER_2 } = this.state;
-    const { pallet } = PLAYER_2;
+    const { deck } = PLAYER_2;
 
-    if (pallet.length) {
+    if (deck.length) {
       return (
-        <div className="pallet--p2">
-          {pallet.map((spell, i) => <Spell key={i} spell={spell} />)}
+        <div className="deck--p2">
+          {deck.map((spell, i) => <Spell key={i} spell={spell} />)}
         </div>
       );
     }
@@ -25,4 +25,4 @@ class Pallet extends Component {
   }
 }
 
-export default Pallet;
+export default Deck;

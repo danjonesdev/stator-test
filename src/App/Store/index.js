@@ -21,10 +21,11 @@ const initStore = () => {
       max_health: 100,
       current_mana: 100,
       max_mana: 100,
-      pallet_items: 0,
-      pallet_limit: 2,
-      pallet: [],
-      active_spells: []
+      erm: 0,
+      deck_limit: 2,
+      deck: [],
+      active_spell: [],
+      active_wrath: []
     },
 
     PLAYER_2: {
@@ -34,10 +35,11 @@ const initStore = () => {
       max_health: 120,
       current_mana: 120,
       max_mana: 120,
-      pallet_items: 0,
-      pallet_limit: 2,
-      pallet: [],
-      active_spells: []
+      erm: 0,
+      deck_limit: 2,
+      deck: [],
+      active_spell: [],
+      active_wrath: []
     },
 
     SPELLS: [
@@ -90,6 +92,42 @@ const initStore = () => {
         defence: 35,
         mana_cost: 35,
         level_required: 1
+      }
+    ],
+    WRATHS: [
+      {
+        id: "shroudedCrux",
+        name: "Shrouded Crux",
+        level_required: 1,
+        effect: (giver, reciever) => {
+          let giverAttack = giver.active_spell[0].attack;
+          let recieverDefence = reciever.active_spell[0].defence;
+
+          // 20% extra fire damage
+          giverAttack +=
+            giver.active_spell[0].element === "fire"
+              ? (giverAttack / 100) * 20
+              : 0;
+
+          return giverAttack - recieverDefence;
+        }
+      },
+      {
+        id: "ardanosVoice",
+        name: "Adranos' Voice",
+        level_required: 1,
+        effect: (giver, reciever) => {
+          let giverAttack = giver.active_spell[0].attack;
+          let recieverDefence = reciever.active_spell[0].defence;
+
+          // 20% extra fire damage
+          giverAttack +=
+            giver.active_spell[0].element === "fire"
+              ? (giverAttack / 100) * 20
+              : 0;
+
+          return giverAttack - recieverDefence;
+        }
       }
     ]
   });

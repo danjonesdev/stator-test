@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import { store } from "statorgfc";
 import reverse from "lodash/reverse";
 
+import Deck from "./Deck";
+import Wrath from "./Wrath";
+
 class Player_1 extends Component {
   constructor() {
     super();
@@ -13,7 +16,11 @@ class Player_1 extends Component {
     const { current_health } = PLAYER_1;
 
     return (
-      <div className="health--p1">Health = {current_health}</div>
+      <React.Fragment>
+        <div className="health--p1">Health = {current_health}</div>
+        <Deck />
+        <Wrath />
+      </React.Fragment>
     );
   }
 }

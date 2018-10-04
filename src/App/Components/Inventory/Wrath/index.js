@@ -31,19 +31,18 @@ class Item extends Component {
   };
 
   render() {
-    const { spell, type } = this.props;
+    const { wrath, type } = this.props;
     const { GAME, PLAYER_1 } = this.state;
-    const spellIcon = require(`../../../Assets/Spells/${spell.id}.svg`);
+    const spellIcon = require(`../../../Assets/Spells/${wrath.id}.svg`);
 
     if (
       GAME.isBattle ||
-      includes(PLAYER_1.deck, spell) ||
-      spell.level_required > PLAYER_1.level ||
-      PLAYER_1.deck.length === PLAYER_1.deck_limit
+      wrath.level_required > PLAYER_1.level ||
+      PLAYER_1.active_wrath.length === 1
     ) {
       return (
         <div className="inventory__spell  spell  disabled">
-          <img src={spellIcon} alt={spell.name} />
+          <img src={spellIcon} alt={wrath.name} />
         </div>
       );
     }
@@ -51,9 +50,9 @@ class Item extends Component {
     return (
       <div
         className="inventory__spell  spell"
-        onClick={() => this.addSpellToDeck(spell)}
+        onClick={() => this.addWrathToDeck(wrath)}
       >
-        <img src={spellIcon} alt={spell.name} />
+        <img src={spellIcon} alt={wrath.name} />
       </div>
     );
   }
