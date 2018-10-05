@@ -13,7 +13,7 @@ const endRound = () => {
   // p1
 
   let player_1_damage = player_1.active_wrath[0].effect(player_1, player_2);
-
+  console.log("player_1_damage", player_1_damage);
   if (player_1_damage > 0) {
     player_2.current_health -= player_1_damage;
 
@@ -29,7 +29,7 @@ const endRound = () => {
   // p2
 
   let player_2_damage = player_2.active_wrath[0].effect(player_2, player_1);
-
+  console.log("player_2_damage", player_2_damage);
   if (player_2_damage > 0) {
     player_1.current_health -= player_2_damage;
 
@@ -45,6 +45,10 @@ const endRound = () => {
   // reset active_spell
   player_1.active_spell = [];
   player_2.active_spell = [];
+
+  // add end of round mana
+  player_1.current_mana += 20;
+  player_2.current_mana += 20;
 
   game.log.push("End Round");
 

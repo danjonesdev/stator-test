@@ -13,11 +13,13 @@ class Player_1 extends Component {
 
   render() {
     const { PLAYER_1 } = this.state;
-    const { current_health } = PLAYER_1;
+    const { current_health, current_mana } = PLAYER_1;
 
     return (
       <React.Fragment>
-        <div className="health--p1">Health = {current_health}</div>
+        <div className="health--p1">
+          Health = {current_health} | Mana = {current_mana}
+        </div>
         <Deck />
         <Wrath />
       </React.Fragment>
