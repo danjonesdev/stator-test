@@ -11,17 +11,20 @@ const endRound = () => {
   var PLAYER_2 = store.get("PLAYER_2");
   const game = store.get("GAME");
 
+  // TODO: set target card for p1
+  // TODO: set target card for p2
+
   // player_1 damage to target and target's health
   let _p1 = {
     damageToTarget: 0,
-    targetHealth: PLAYER_2.active_spell[0].health
+    targetHealth: PLAYER_2.active_spell[0].health // target card (to be changed)
   };
-  
+
   // player_2 damage to target and target's health
   let _p2 = {
     damageToTarget: 0,
     // target card's health
-    targetHealth: PLAYER_1.active_spell[0].health
+    targetHealth: PLAYER_1.active_spell[0].health // target card (to be changed)
   };
 
   // p1: loop active spells
@@ -52,10 +55,6 @@ const endRound = () => {
   // resovle inflictions to selected cards
   // TODO: p1round.damage to p2round.health
   // TODO: p1round.health to p2round.damage
-
-  // reset active_spell
-  // PLAYER_1.active_spell = [];
-  // PLAYER_2.active_spell = [];
 
   // add end of round mana
   PLAYER_1.current_mana += 20;
