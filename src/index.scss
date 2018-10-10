@@ -1,0 +1,272 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+div {
+  margin: 0;
+  padding: 0;
+  clear: both;
+  vertical-align: top;
+}
+
+.Game {
+  position: fixed;
+  width: 1000px;
+  height: 500px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
+  background-size: cover;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.dev {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+  font-size: 14px;
+  text-align: left;
+}
+
+.inventory {
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  width: 100px;
+  height: 500px;
+}
+
+.inventory__spell {
+  transition: opacity ease-in-out 0.3s;
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  opacity: 1;
+  cursor: pointer;
+  padding: 2px;
+}
+
+.health--p1 {
+  position: absolute;
+  bottom: 3px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 200px;
+  text-align: center;
+}
+
+.health--p2 {
+  position: absolute;
+  top: 3px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 200px;
+  text-align: center;
+}
+
+.deck--p1 {
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 500px;
+  height: 120px;
+}
+
+.deck--p2 {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 500px;
+  height: 120px;
+}
+
+.deck__spell {
+  transition: all ease-in-out 0.3s;
+  display: inline-block;
+  height: 120px;
+  width: 80px;
+  opacity: 1;
+  cursor: pointer;
+  padding: 2px;
+  background: white;
+  text-align: center;
+  position: relative;
+  margin-left: 5px;
+  margin-right: 5px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  bottom: 0px;
+}
+
+.deck__spell img {
+  position: absolute;
+  top: 35px;
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+  border-radius: 50%;
+  left: 0;
+  right: 0;
+}
+
+.deck__spell.active--p1 {
+  -webkit-animation: active--p1 0.3s forwards ease-in-out;
+}
+
+.deck__spell.active--p2 {
+  -webkit-animation: active--p2 0.3s forwards ease-in-out;
+}
+
+.deck__spell.active--p1 img, .deck__spell.active--p2 img {
+  -webkit-animation: rotation 1.5s infinite linear;
+}
+
+.spell.disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+@-webkit-keyframes active--p1 {
+  from {
+    bottom: 0px;
+  }
+
+  to {
+    bottom: 50px;
+  }
+}
+
+@-webkit-keyframes active--p2 {
+  from {
+    bottom: 0px;
+  }
+
+  to {
+    bottom: -50px;
+  }
+}
+
+@-webkit-keyframes rotation {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(359deg);
+  }
+}
+
+.wrath--p1 {
+  position: absolute;
+  bottom: 30px;
+  right: 0;
+  width: 300px;
+  height: 120px;
+}
+
+.wrath--p2 {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  width: 300px;
+  height: 120px;
+}
+
+.start-round {
+  position: absolute;
+  margin: 0 auto;
+  width: 200px;
+  text-align: center;
+  left: 0;
+  right: 0;
+  top: 230px;
+  font-size: 22px;
+  color: black;
+  font-weight: bold;
+}
+
+.log {
+  position: absolute;
+  padding: 5px;
+  font-size: 14px;
+  right: 5px;
+  bottom: 5px;
+  width: 180px;
+  height: 480px;
+  background: white;
+  overflow-y: scroll;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.log p {
+  margin-bottom: 12px;
+}
