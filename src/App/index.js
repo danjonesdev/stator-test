@@ -8,6 +8,7 @@ import Inventory from "./Components/Inventory";
 import Player_1 from "./Components/Player_1";
 import Player_2 from "./Components/Player_2";
 import StartRound from "./Components/StartRound";
+import Ready from "./Components/Ready";
 import EndRound from "./Components/EndRound";
 import Log from "./Components/Log";
 
@@ -31,10 +32,14 @@ class App extends Component {
         style={{ background: `url(${Background})`, backgroundSize: "cover" }}
       >
         <StartRound />
+        <Ready />
         <EndRound />
+
         <Inventory />
+
         <Player_2 />
         <Player_1 />
+
         <Log />
         {isDev}
       </div>

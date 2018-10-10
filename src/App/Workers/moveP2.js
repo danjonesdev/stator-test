@@ -1,9 +1,9 @@
 import { store } from "statorgfc";
 
 import includes from "lodash/includes";
-import filter from "lodash/filter";
-import sample from "lodash/sample";
 import shuffle from "lodash/shuffle";
+import sample from "lodash/sample";
+import random from "lodash/random";
 
 import endRound from "./endRound";
 
@@ -11,21 +11,26 @@ const moveP2 = () => {
   const player_2 = store.get("PLAYER_2");
   const game = store.get("GAME");
 
-  // TODO: if player 1 has active moves
-  // if attack card, throw random defence
-  // if defence card, throw random attack
-  // else throw random anything (even passive?)
+  // shuffles deck
+  const shuffleDeck = shuffle(player_2.deck);
+  // selects random number of spells to deal
+  const numberOfDeals = random(1, player_2.active_spell_limit);
 
-  // set player_2 active
-  let spell;
-  // get random spell
-  spell = sample(player_2.deck);
-  // take off mana const
-  player_2.current_mana -= spell.mana_cost;
-  // adds to player_2 active_spell
-  player_2.active_spell.push(spell);
+  // loops thorugh shuffled deck and deals
+  for (let i = 0; i < shuffleDeck.length; i++) {
 
-  game.log.push(`${player_2.name} uses ${spell.name}`);
+    // set player_2 active
+    let spell = shuffleDeck[i];
+    // take off mana const
+    player_2.current_mana -= spell.mana_cost;
+    // adds to player_2 active_spell
+    player_2.active_spell.push(spell);
+
+    game.log.push(`${player_2.name} deals ${spell.name}`);
+
+    // if cards dealt matches numberOfDeals
+    if (i + 1 === numberOfDeals) break;
+  }
 
   store.set({ PLAYER_2: player_2 });
   store.set({ GAME: game });

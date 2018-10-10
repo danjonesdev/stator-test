@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { store } from "statorgfc";
-import indexOf from "lodash/indexOf";
-import map from "lodash/map";
+
+import includes from "lodash/includes";
 
 import moveP1 from "../../../../Workers/moveP1";
 import Card from "../../../../Assets/card.jpg";
@@ -17,14 +17,7 @@ class Spell extends Component {
     const player_2 = store.get("PLAYER_2");
     const game = store.get("GAME");
 
-    if (
-      // if not already dealt card
-      player_1.active_spell.length === 0 &&
-      // if enough mana
-      player_1.current_mana >= spell.mana_cost
-    ) {
-      moveP1(spell);
-    }
+    moveP1(spell);
   };
 
   render() {
@@ -32,10 +25,7 @@ class Spell extends Component {
     const { GAME, PLAYER_1 } = this.state;
     const spellIcon = require(`../../../../Assets/Spells/${spell.id}.svg`);
 
-    const activeIds = map(PLAYER_1.active_spell, "id");
-    const currentActiveSpells = indexOf(activeIds, spell.id);
-
-    if (currentActiveSpells >= 0) {
+    if (includes(PLAYER_1.active_spell, spell)) {
       return (
         <div
           className="deck__spell  spell  active--p1"
@@ -46,7 +36,12 @@ class Spell extends Component {
       );
     }
 
-    if (!GAME.isBattle || spell.mana_cost > PLAYER_1.current_mana) {
+    if (
+      !GAME.isBattle ||
+      spell.mana_cost > PLAYER_1.current_mana ||
+      PLAYER_1.current_mana < spell.mana_cost ||
+      PLAYER_1.active_spell.length >= PLAYER_1.active_spell_limit
+    ) {
       return (
         <div
           className="deck__spell  spell  disabled"
