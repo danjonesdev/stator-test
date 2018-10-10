@@ -13,7 +13,9 @@ class Log extends Component {
     const { log } = GAME;
 
     return (
-      <div className="log">{log.map((text, i) => <p key={i}>{text}</p>)}</div>
+      <div className="log" style={{ background: `url('https://mbtskoudsalg.com/images/old-film-texture-png-1.png')`, backgroundSize: "contain", backgroundRepeat: "no-repeat" }}>
+        {log.map((text, i) => <p key={i}>{text}</p>)}
+      </div>
     );
   }
 }

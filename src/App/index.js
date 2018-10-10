@@ -11,9 +11,9 @@ import StartRound from "./Components/StartRound";
 import Ready from "./Components/Ready";
 import EndRound from "./Components/EndRound";
 import Log from "./Components/Log";
+import StatusBar from "./Components/StatusBar";
 
 import Background from "./Assets/background.jpg";
-import "../App.css";
 
 initStore();
 
@@ -27,22 +27,20 @@ class App extends Component {
     const isDev = this.state.ENV.isDev ? <DevHelper /> : false;
 
     return (
-      <div
-        className="Game"
-        style={{ background: `url(${Background})`, backgroundSize: "cover" }}
-      >
-        <StartRound />
-        <Ready />
-        <EndRound />
+      <React.Fragment>
+        <div className="Game" style={{ background: `url(${Background})`, backgroundSize: "cover" }}>
+          <StartRound />
+          <Ready />
+          <EndRound />
+          <Inventory />
+          <Player_2 />
+          <Player_1 />
+          <Log />
+          {isDev}
+        </div>
 
-        <Inventory />
-
-        <Player_2 />
-        <Player_1 />
-
-        <Log />
-        {isDev}
-      </div>
+        <StatusBar />
+      </React.Fragment>
     );
   }
 }

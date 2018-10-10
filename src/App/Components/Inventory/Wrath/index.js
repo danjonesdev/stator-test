@@ -41,7 +41,7 @@ class Item extends Component {
       PLAYER_1.active_wrath.length === 1
     ) {
       return (
-        <div className="inventory__spell  spell  disabled">
+        <div className="inventory__spell  disabled">
           <img src={spellIcon} alt={wrath.name} />
         </div>
       );
@@ -49,7 +49,7 @@ class Item extends Component {
 
     return (
       <div
-        className="inventory__spell  spell"
+        className="inventory__spell"
         onClick={() => this.addWrathToDeck(wrath)}
       >
         <img src={spellIcon} alt={wrath.name} />

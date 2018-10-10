@@ -21,30 +21,6 @@ export const spells = () => {
       effect: null
     },
     {
-      id: "healthPotion",
-      name: "Health Potion (Small)",
-      attack: 0,
-      health: 0,
-      mana_cost: 30,
-      level_required: 1,
-      effect: {
-        description: "Instant +40 mana for next round",
-        func: (giverRound, recieverRound, currentPlayer) => {
-          let player = store.get(`${currentPlayer}`);
-          player.current_mana += 40;
-
-          if (currentPlayer === "PLAYER_1") {
-            store.set({ PLAYER_1: player });
-          }
-          if (currentPlayer === "PLAYER_2") {
-            store.set({ PLAYER_2: player });
-          }
-
-          return giverRound;
-        }
-      }
-    },
-    {
       id: "manaPotion",
       name: "Mana Potion (Small)",
       attack: 0,

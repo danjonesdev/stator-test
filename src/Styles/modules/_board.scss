@@ -1,0 +1,32 @@
+.Game {
+  position: fixed;
+  width: 1000px;
+  height: 450px;
+  top: 50%;
+  margin-top: -225px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  background-size: cover;
+  @extend .shadow4;
+  animation: board 40s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite;
+}
+
+@keyframes board {
+  0% {
+    transform: translateX(0) translateY(0) rotate(0deg) scale(1);
+  }
+
+  33% {
+    transform: translateX(3px) translateY(3px) rotate(-1deg) scale(1.02);
+  }
+
+  66% {
+    transform: translateX(3px) translateY(-3px) rotate(1deg) scale(0.97);
+  }
+
+  100% {
+    transform: translateX(0) translateY(0) rotate(0deg) scale(1);
+  }
+}

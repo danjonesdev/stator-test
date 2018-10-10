@@ -16,9 +16,9 @@ class Inventory extends Component {
 
     return (
       <div className="inventory">
-        SPELLS
+        <p className="inventory__tag">Spells</p>
         {spells.map((spell, i) => <Spell key={i} spell={spell} />)}
-        WRATHS
+        <p className="inventory__tag">Wrath</p>
         {wraths.map((wrath, i) => <Wrath key={i} wrath={wrath} />)}
       </div>
     );

@@ -23,7 +23,7 @@ class Spell extends Component {
     if (currentActiveSpells >= 0) {
       return (
         <div
-          className="deck__spell  spell  active--p2"
+          className="deck__spell  deck__spell--active"
           style={{ background: `url(${Card})`, backgroundSize: "cover" }}
         >
           <img src={spellIcon} alt={spell.name} />
@@ -34,7 +34,7 @@ class Spell extends Component {
     if (!GAME.isBattle || spell.mana_cost > PLAYER_2.current_mana) {
       return (
         <div
-          className="deck__spell  spell  disabled"
+          className="deck__spell  disabled"
           style={{ background: `url(${Card})`, backgroundSize: "cover" }}
         >
           <img src={spellIcon} alt={spell.name} />
@@ -44,7 +44,7 @@ class Spell extends Component {
 
     return (
       <div
-        className="deck__spell  spell"
+        className="deck__spell"
         style={{ background: `url(${Card})`, backgroundSize: "cover" }}
       >
         <img src={spellIcon} alt={spell.name} />

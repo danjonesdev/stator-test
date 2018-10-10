@@ -42,7 +42,7 @@ class Item extends Component {
       PLAYER_1.deck.length === PLAYER_1.deck_limit
     ) {
       return (
-        <div className="inventory__spell  spell  disabled">
+        <div className="inventory__spell  disabled">
           <img src={spellIcon} alt={spell.name} />
         </div>
       );
@@ -50,7 +50,7 @@ class Item extends Component {
 
     return (
       <div
-        className="inventory__spell  spell"
+        className="inventory__spell"
         onClick={() => this.addSpellToDeck(spell)}
       >
         <img src={spellIcon} alt={spell.name} />

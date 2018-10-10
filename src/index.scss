@@ -1,84 +1,73 @@
-/* http://meyerweb.com/eric/tools/css/reset/
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
+// Variables
+@import './Styles/vars/index';
+
+// Utilities
+// @import './Styles/utilities/aspect-ratio';
+// @import './Styles/utilities/background';
+// @import './Styles/utilities/base';
+// @import './Styles/utilities/border';
+// @import './Styles/utilities/border-color';
+@import './Styles/utilities/border-radius';
+// @import './Styles/utilities/border-width';
+@import './Styles/utilities/box-shadow';
+// @import './Styles/utilities/clearfix';
+// @import './Styles/utilities/color';
+// @import './Styles/utilities/cursor';
+// @import './Styles/utilities/debug';
+// @import './Styles/utilities/display';
+// @import './Styles/utilities/flexbox';
+// @import './Styles/utilities/font-familiy';
+// @import './Styles/utilities/font-size';
+// @import './Styles/utilities/font-style';
+// @import './Styles/utilities/font-weight';
+// @import './Styles/utilities/grid';
+// @import './Styles/utilities/height';
+// @import './Styles/utilities/helper';
+// @import './Styles/utilities/hover';
+// @import './Styles/utilities/line-height';
+// @import './Styles/utilities/link';
+// @import './Styles/utilities/max-width';
+// @import './Styles/utilities/negative-margin';
+// @import './Styles/utilities/opacity';
+// @import './Styles/utilities/overflow';
+// @import './Styles/utilities/position';
+// @import './Styles/utilities/spacing';
+// @import './Styles/utilities/state';
+// @import './Styles/utilities/text-align';
+// @import './Styles/utilities/text-decoration';
+// @import './Styles/utilities/text-transform';
+// @import './Styles/utilities/typography';
+// @import './Styles/utilities/tracking';
+// @import './Styles/utilities/vertical-align';
+// @import './Styles/utilities/width';
+// @import './Styles/utilities/z';
+
+// modules
+
+@import "./Styles/modules/board";
+@import "./Styles/modules/status-bar";
+@import "./Styles/modules/inventory";
+@import "./Styles/modules/deck";
+@import "./Styles/modules/log";
+
+// elements
+
+
+*::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
 }
 
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-  display: block;
+*::-webkit-scrollbar
+{
+	width: 6px;
+	background-color: #F5F5F5;
 }
 
-body {
-  line-height: 1;
-}
-
-ol, ul {
-  list-style: none;
-}
-
-blockquote, q {
-  quotes: none;
-}
-
-blockquote:before, blockquote:after,
-q:before, q:after {
-  content: '';
-  content: none;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-div {
-  margin: 0;
-  padding: 0;
-  clear: both;
-  vertical-align: top;
-}
-
-.Game {
-  position: fixed;
-  width: 1000px;
-  height: 500px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  margin: 0 auto;
-  background-size: cover;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+*::-webkit-scrollbar-thumb
+{
+	background-color: #000000;
 }
 
 .dev {
@@ -90,24 +79,6 @@ div {
   border-radius: 10px;
   font-size: 14px;
   text-align: left;
-}
-
-.inventory {
-  position: absolute;
-  left: 5px;
-  top: 5px;
-  width: 100px;
-  height: 500px;
-}
-
-.inventory__spell {
-  transition: opacity ease-in-out 0.3s;
-  display: inline-block;
-  height: 50px;
-  width: 50px;
-  opacity: 1;
-  cursor: pointer;
-  padding: 2px;
 }
 
 .health--p1 {
@@ -130,115 +101,22 @@ div {
   text-align: center;
 }
 
-.deck--p1 {
-  position: absolute;
-  bottom: 30px;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  width: 500px;
-  height: 120px;
-}
-
-.deck--p2 {
-  position: absolute;
-  top: 30px;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  width: 500px;
-  height: 120px;
-}
-
-.deck__spell {
-  transition: all ease-in-out 0.3s;
-  display: inline-block;
-  height: 120px;
-  width: 80px;
-  opacity: 1;
-  cursor: pointer;
-  padding: 2px;
-  background: white;
-  text-align: center;
-  position: relative;
-  margin-left: 5px;
-  margin-right: 5px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  bottom: 0px;
-}
-
-.deck__spell img {
-  position: absolute;
-  top: 35px;
-  width: 50px;
-  height: 50px;
-  margin: 0 auto;
-  border-radius: 50%;
-  left: 0;
-  right: 0;
-}
-
-.deck__spell.active--p1 {
-  -webkit-animation: active--p1 0.3s forwards ease-in-out;
-}
-
-.deck__spell.active--p2 {
-  -webkit-animation: active--p2 0.3s forwards ease-in-out;
-}
-
-.deck__spell.active--p1 img, .deck__spell.active--p2 img {
-  -webkit-animation: rotation 1.5s infinite linear;
-}
-
-.spell.disabled {
+.disabled {
   opacity: 0.3;
   cursor: default;
 }
 
-@-webkit-keyframes active--p1 {
-  from {
-    bottom: 0px;
-  }
-
-  to {
-    bottom: 50px;
-  }
-}
-
-@-webkit-keyframes active--p2 {
-  from {
-    bottom: 0px;
-  }
-
-  to {
-    bottom: -50px;
-  }
-}
-
-@-webkit-keyframes rotation {
-  from {
-    -webkit-transform: rotate(0deg);
-  }
-
-  to {
-    -webkit-transform: rotate(359deg);
-  }
-}
-
 .wrath--p1 {
-  position: absolute;
+  position: fixed;
   bottom: 30px;
-  right: 0;
-  width: 300px;
-  height: 120px;
+  right: 200px;
 }
 
 .wrath--p2 {
-  position: absolute;
+  position: fixed;
   top: 30px;
-  right: 0;
-  width: 300px;
-  height: 120px;
+  left: 200px;
+  transform: rotate(180deg);
 }
 
 .start-round {
@@ -252,21 +130,4 @@ div {
   font-size: 22px;
   color: black;
   font-weight: bold;
-}
-
-.log {
-  position: absolute;
-  padding: 5px;
-  font-size: 14px;
-  right: 5px;
-  bottom: 5px;
-  width: 180px;
-  height: 480px;
-  background: white;
-  overflow-y: scroll;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-}
-
-.log p {
-  margin-bottom: 12px;
 }
